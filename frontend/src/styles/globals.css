@@ -1,0 +1,56 @@
+@font-face {
+    font-family: "SFProText";
+    src: url("../assets/fonts/SF-Pro-Display-Regular.woff") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "SFProDisplay";
+    src: url("../assets/fonts/SF-Pro-Display-Regular.woff") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+:root {
+    --sfpdisplay: "SFProDisplay";
+    --sfptext: "SFProText";
+}
+#root {
+    width: 100%;
+}
+.dark {
+    --primary-color: black;
+    --secondary-color: white;
+    --border: 1px solid rgba(255, 255, 255, 0.45);
+}
+.light {
+    --primary-color: white;
+    --secondary-color: black;
+    --border: 1px solid rgba(0, 0, 0, 0.45);
+}
+.df {
+    display: flex;
+}
+.dfc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dfsb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dfac {
+    display: flex;
+    align-items: center;
+}
+.dffd {
+    display: flex;
+    flex-direction: column;
+}
+.layout {
+    height: 100dvh;
+    overflow: hidden;
+}

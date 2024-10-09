@@ -1,0 +1,152 @@
+.nav {
+    width: 100%;
+    background-color: var(--primary-color);
+    height: 60px;
+    padding: 10px;
+    z-index: 1000;
+    position: sticky;
+    top: 0px;
+}
+.nav_logo h1 a {
+    font-family: var(--sfpdisplay);
+    color: var(--secondary-color);
+    font-weight: 700;
+    text-decoration: none;
+}
+.nav_list {
+    width: 200px;
+    gap: 10px;
+    font-family: var(--sfptext);
+    font-weight: 400;
+}
+.nav_item {
+    list-style-type: none;
+    padding: 0 10px;
+    height: 60px;
+    position: relative;
+}
+.nav_item a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+.nav_item a:hover {
+    font-weight: 700;
+}
+.nav_search {
+    width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: var(--primary-color);
+}
+.nav_search input {
+    font-family: var(--sfptext);
+    background-color: transparent;
+    color: var(--secondary-color);
+    font-size: 18px;
+    width: 350px;
+    height: 30px;
+    outline: none;
+    padding: 0px 10px;
+    border: none;
+}
+.nav_search svg {
+    margin: 10px;
+}
+.nav_search input::placeholder {
+    font-family: var(--sfptext);
+}
+.profile {
+    width: 180px;
+    gap: 5px;
+}
+.svgdiv {
+    width: 50px;
+    height: 35px;
+    border-radius: 50px;
+}
+.svgdiv:not(:first-child):hover {
+    border: 1px solid var(--secondary-color);
+}
+.nav_login_button button {
+    padding: 5px 15px;
+    background-color: var(--primary-color);
+    border: var(--border);
+    border-radius: 5px;
+}
+.nav_login_button button a {
+    width: 100%;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+.nav_login_button button:hover {
+    background-color: var(--secondary-color);
+}
+.nav_login_button button:hover a {
+    color: var(--primary-color);
+}
+
+.dropdown {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    padding-bottom: 30px;
+    position: absolute;
+    top: 60px;
+    left: -100px;
+    background-color: var(--primary-color);
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    visibility: hidden;
+    z-index: 100;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.dropdown.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+.dropdown .product {
+    width: 120px;
+    gap: 10px;
+}
+
+.dropdown .product .product_categories .product_category {
+    list-style-type: none;
+}
+
+.product h3 {
+    font-size: 14px;
+    padding-bottom: 10px;
+    color: rgba(255, 255, 255, 0.805);
+}
+
+.product_category {
+    padding-bottom: 8px;
+}
+
+.product_category a {
+    font-size: 14px;
+    color: rgb(176, 176, 176);
+}
+
+.product_category a:hover {
+    color: var(--secondary-color);
+}
+.dropdown_dashed_border {
+    width: 1px;
+    background-image: repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.3) 3px,
+        transparent 3px,
+        transparent 8px
+    );
+    background-size: 1px 100%, 100% 1px, 1px 100%, 100% 1px;
+    background-position: 0 0, 0 0, 100% 0, 0 100%;
+    background-repeat: no-repeat;
+}
