@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { useTheme } from "../hooks/UseTheme";
 const Dropdown = ({ genderData, isActive, onClose }) => {
+    const { isDark } = useTheme();
     return (
         <div className={`dropdown ${isActive ? "active" : ""}`}>
             {genderData.content.map((category, categoryIndex) => (
@@ -33,7 +34,12 @@ const Dropdown = ({ genderData, isActive, onClose }) => {
                         )}
                     </div>
                     {categoryIndex !== genderData.content.length - 1 && (
-                        <div className="dropdown_dashed_border"></div>
+                        <div
+                            className={
+                                isDark
+                                    ? "dropdown_dark_dashed_border"
+                                    : "dropdown_light_dashed_border"
+                            }></div>
                     )}
                 </div>
             ))}

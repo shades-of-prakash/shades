@@ -1,0 +1,51 @@
+.main_account_div {
+    height: auto;
+    font-family: var(--sfptext);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+.sub_account_div {
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+}
+.side_menu {
+    width: 20%;
+    height: inherit;
+    padding: 10px;
+    border-right: var(--border-light);
+    height: 100dvh;
+    /* background-color: blueviolet; */
+}
+.side_menu h1 {
+    margin-top: 10px;
+}
+.side_menu ul {
+    width: 100%;
+}
+
+.side_menu ul li {
+    margin-top: 10px;
+    list-style-type: none;
+}
+.side_menu ul li a {
+    width: 100%;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    padding: 10px 5px;
+    margin-top: 12px;
+    text-decoration: none;
+    gap: 10px;
+}
+.side_menu ul li a:hover {
+    background-color: var(--hover);
+}
+.side_menu ul li a:focus {
+    background-color: var(--hover);
+}
+.outlet {
+    width: 80%;
+    height: inherit;
+    /* background-color: brown; */
+}

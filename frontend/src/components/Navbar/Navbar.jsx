@@ -1,17 +1,22 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { User, Bag2, SearchNormal, Heart, Moon, Sun1 } from "iconsax-react";
 import { useTheme } from "../../hooks/UseTheme";
 import Dropdown from "../Dropdown.jsx";
 import dropdownData from "../../utils/dropdownData";
-
+import { useAuth } from "../../hooks/UseAuth.jsx";
+import Account from "../Account.jsx";
 const Navbar = () => {
     const { isDark, toggleTheme } = useTheme();
+    const navigate = useNavigate();
     const [activeDropdown, setActiveDropdown] = useState(null);
+    const [isUserSettingsOpen, setIsUserSettingsOpen] = useState(false);
+    const { isAuthenticated } = useAuth();
+    const accountRef = useRef(null);
     const navItems = [
-        { label: "Men", path: "/men", genderData: dropdownData[0] },
-        { label: "Women", path: "/women", genderData: dropdownData[1] },
+        { label: "Men", path: "/Men", genderData: dropdownData[0] },
+        { label: "Women", path: "/Women", genderData: dropdownData[1] },
         { label: "AI", path: "/shadesai", genderData: null },
     ];
     function handleIcon() {
@@ -26,6 +31,23 @@ const Navbar = () => {
         setActiveDropdown(null);
     }
 
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (
+                accountRef.current &&
+                !accountRef.current.contains(event.target)
+            ) {
+                setIsUserSettingsOpen(false);
+            }
+        }
+
+        if (isUserSettingsOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isUserSettingsOpen]);
     return (
         <div className="dfsb nav">
             <div className="nav_logo">
@@ -68,16 +90,36 @@ const Navbar = () => {
                     )}
                 </div>
                 <div className="dfc svgdiv">
-                    <Heart size="24" color={isDark ? "white" : "black"} />
+                    <Heart
+                        size="24"
+                        color={isDark ? "white" : "black"}
+                        onClick={() => {
+                            navigate("/account/wishlist");
+                        }}
+                    />
                 </div>
-                <div className="dfc svgdiv">
+                <div
+                    className="dfc svgdiv"
+                    onClick={() => navigate("/account/cart")}>
                     <Bag2 size="24" color={isDark ? "white" : "black"} />
                 </div>
-                <div className="nav_login_button">
-                    <button>
-                        <Link to="/login">Login</Link>
-                    </button>
-                </div>
+                {isAuthenticated ? (
+                    <div
+                        className="dfc svgdiv  user_icon"
+                        ref={accountRef}
+                        onClick={() => {
+                            setIsUserSettingsOpen((prev) => !prev);
+                        }}>
+                        <User size="24" color={isDark ? "white" : "black"} />
+                        {isUserSettingsOpen && <Account />}
+                    </div>
+                ) : (
+                    <div className="nav_login_button">
+                        <button>
+                            <Link to="/login">Login</Link>
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );

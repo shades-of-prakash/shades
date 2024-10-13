@@ -1,7 +1,7 @@
 .footer {
     width: 100%;
     background-color: var(--primary-color);
-    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    border-top: var(border-light);
     color: var(--secondary-color);
     padding: 15px;
     gap: 20px;

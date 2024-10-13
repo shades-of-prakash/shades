@@ -3,9 +3,13 @@ config();
 import express from "express";
 import connectDb from "./db.js";
 import productRouter from "./routes/productRouter.js";
+import userRouter from "./routes/userRoutes.js";
+import cors from "cors";
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.use("/api/products", productRouter);
+app.use("/api/user", userRouter);
 const port = process.env.PORT || 3001;
 connectDb()
     .then(() => {

@@ -1,9 +1,14 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-
-const ContentLayout = () => {
-    const { category } = useParams();
-    return <div className="data_display">{category}</div>;
+import React, { useEffect, useState } from "react";
+import Card from "./Card.jsx/Card";
+const ContentLayout = ({ data }) => {
+    const { products } = data;
+    return (
+        <div className="data_display">
+            {products.map((item, index) => (
+                <Card products={products} product={item} key={item._id} />
+            ))}
+        </div>
+    );
 };
 
 export default ContentLayout;

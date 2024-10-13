@@ -5,32 +5,32 @@ const dropdownData = [
             {
                 mainCategory: "Topwear",
                 subCategory: [
-                    "T-Shirts",
-                    "Casual Shirts",
-                    "Formal Shirts",
+                    "Tshirts",
+                    "CasualShirts",
+                    "FormalShirts",
                     "Jackets",
                 ],
             },
             {
-                mainCategory: "Festive Wear",
+                mainCategory: "FestiveWear",
                 subCategory: ["Kurtas", "Sherwanis"],
             },
             {
                 mainCategory: "Bottomwear",
                 subCategory: [
                     "Jeans",
-                    "Casual Trousers",
-                    "Formal Trousers",
+                    "CasualTrousers",
+                    "FormalTrousers",
                     "Shorts",
-                    "Track Pants",
+                    "Trackpants",
                 ],
             },
             {
                 mainCategory: "Footwear",
                 subCategory: [
-                    "Casual Shoes",
-                    "Sports Shoes",
-                    "Formal Shoes",
+                    "CasualShoes",
+                    "SportShoes",
+                    "FormalShoes",
                     "Sneakers",
                     "Sandals",
                     "Flip Flops",
@@ -46,17 +46,17 @@ const dropdownData = [
         gender: "Women",
         content: [
             {
-                mainCategory: "Fusion Wear",
+                mainCategory: "FusionWear",
                 subCategory: [
                     "Kurtas",
                     "Sarees",
-                    "Ethnic Wear",
+                    "EthnicWear",
                     "Leggings",
                     "Jackets",
                 ],
             },
             {
-                mainCategory: "Western Wear",
+                mainCategory: "WesternWear",
                 subCategory: [
                     " Dresses",
                     "Tops",
@@ -67,7 +67,7 @@ const dropdownData = [
             },
             {
                 mainCategory: "Footwear",
-                subCategory: ["Flats", "Casual Shoes", "Heels", "Sports Shoes"],
+                subCategory: ["Flats", "CasualShoes", "Heels", "SportsShoes"],
             },
             {
                 mainCategory: "Accessories",

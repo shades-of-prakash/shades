@@ -6,6 +6,7 @@
     z-index: 1000;
     position: sticky;
     top: 0px;
+    border-bottom: var(--border-light);
 }
 .nav_logo h1 a {
     font-family: var(--sfpdisplay);
@@ -34,7 +35,7 @@
 }
 .nav_search {
     width: 400px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: var(--border-light);
     border-radius: 50px;
     overflow: hidden;
     background-color: var(--primary-color);
@@ -57,13 +58,15 @@
     font-family: var(--sfptext);
 }
 .profile {
-    width: 180px;
+    width: 200px;
     gap: 5px;
 }
 .svgdiv {
-    width: 50px;
-    height: 35px;
-    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    /* padding: 10px 0; */
+    border-radius: 50%;
+    /* padding: 10px; */
 }
 .svgdiv:not(:first-child):hover {
     border: 1px solid var(--secondary-color);
@@ -95,7 +98,7 @@
     top: 60px;
     left: -100px;
     background-color: var(--primary-color);
-    border: 0.5px solid rgba(255, 255, 255, 0.3);
+    border: var(--border-light);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     visibility: hidden;
@@ -120,9 +123,9 @@
 }
 
 .product h3 {
-    font-size: 14px;
+    font-size: 16px;
     padding-bottom: 10px;
-    color: rgba(255, 255, 255, 0.805);
+    color: var(--secondary-color);
 }
 
 .product_category {
@@ -130,14 +133,14 @@
 }
 
 .product_category a {
-    font-size: 14px;
-    color: rgb(176, 176, 176);
+    font-size: 15px;
+    color: var(--light-color);
 }
 
 .product_category a:hover {
     color: var(--secondary-color);
 }
-.dropdown_dashed_border {
+.dropdown_dark_dashed_border {
     width: 1px;
     background-image: repeating-linear-gradient(
         180deg,
@@ -149,4 +152,69 @@
     background-size: 1px 100%, 100% 1px, 1px 100%, 100% 1px;
     background-position: 0 0, 0 0, 100% 0, 0 100%;
     background-repeat: no-repeat;
+}
+.dropdown_light_dashed_border {
+    width: 1px;
+    background-image: repeating-linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3) 3px,
+        transparent 3px,
+        transparent 8px
+    );
+    background-size: 1px 100%, 100% 1px, 1px 100%, 100% 1px;
+    background-position: 0 0, 0 0, 100% 0, 0 100%;
+    background-repeat: no-repeat;
+}
+
+.account_settings {
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    width: 300px;
+    /* height: 400px; */
+    background: var(--primary-color);
+    border: var(--border-medium);
+    border-radius: 8px;
+    font-family: var(--sfptext);
+    color: var(--secondary-color);
+    padding: 10px;
+}
+.username {
+    font-size: large;
+}
+.email {
+    color: var(--light-color);
+    font-size: medium;
+}
+.account_settings button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.user_div {
+    border-bottom: var(--border-light);
+    padding: 10px 0;
+}
+.user_div p {
+    margin-top: 4px;
+}
+.account_settings .a {
+    width: 100%;
+    list-style-type: none;
+    border-bottom: var(--border-light);
+    padding: 10px 0;
+}
+.account_settings .a a {
+    text-decoration: none;
+    color: var(--light-color);
+}
+.account_settings .a:hover a {
+    color: var(--secondary-color);
 }
