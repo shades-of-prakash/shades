@@ -1,7 +1,8 @@
 import React from "react";
 import "./Card.css";
 import { Link } from "react-router-dom";
-const Card = ({ product, products }) => {
+const Card = ({ product, products, styles }) => {
+    // console.log(styles);
     const {
         _id,
         category,
@@ -16,6 +17,7 @@ const Card = ({ product, products }) => {
         <Link
             to={`/product/${_id}`}
             state={{ product, products }}
+            style={{ styles }}
             className="card">
             <div className="card_image_container">
                 <img src={mainImageUrl} alt="" />

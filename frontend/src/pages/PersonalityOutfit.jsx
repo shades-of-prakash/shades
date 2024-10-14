@@ -4,7 +4,6 @@ import CustomSelect from "../components/CustomSelect";
 import { useTheme } from "../hooks/UseTheme";
 import outfits from "../utils/genderOutfits";
 import Card from "../components/Card.jsx";
-
 const PersonalityOutfit = () => {
     const { isDark } = useTheme();
     const [showPersonalityDetails, setShowPersonalityDetails] = useState(false);
@@ -31,9 +30,60 @@ const PersonalityOutfit = () => {
     const personality = [
         {
             personality: "Adventurous",
-            des: "Adventurous individuals thrive on exploration and new experiences...",
+            des: "Adventurous individuals thrive on exploration and new experiences. They seek excitement, whether through travel, extreme sports, or trying unfamiliar foods, and their bold nature encourages others to step outside their comfort zones.",
         },
-        // Other personality descriptions here...
+        {
+            personality: "Creative",
+            des: "Creative individuals express themselves through imagination and innovation. They often think outside the box, using their artistic talents in various forms like art, writing, or design to bring unique ideas and solutions to life.",
+        },
+        {
+            personality: "Introverted",
+            des: "Introverted individuals prefer solitude or intimate gatherings, often finding energy in reflection rather than social interaction. They value deep connections, enjoying thoughtful conversations with close friends over large social events.",
+        },
+        {
+            personality: "Extroverted",
+            des: "Extroverted individuals are outgoing and energized by social interactions. They thrive in group settings, easily making new friends and often taking the lead in conversations and activities, making them lively and engaging companions.",
+        },
+        {
+            personality: "LaidBack",
+            des: "Laidback individuals approach life with a relaxed attitude. They remain calm in challenging situations, enjoy the simple pleasures, and foster a sense of peace and contentment, creating a soothing atmosphere for those around them.",
+        },
+        {
+            personality: "Edgy",
+            des: "Edgy individuals embrace boldness and often challenge societal norms. They express their uniqueness through unconventional styles and ideas, inspiring others to celebrate individuality and think differently.",
+        },
+        {
+            personality: "Chic",
+            des: "Chic individuals have a refined sense of style and sophistication. They appreciate aesthetics, blending classic and contemporary elements to create a polished look that exudes elegance and grace in every aspect of their lives.",
+        },
+        {
+            personality: "Sporty",
+            des: "Sporty individuals are active and enjoy participating in sports and outdoor activities. They prioritize fitness and competition, often inspiring others to embrace an active lifestyle and appreciate the joy of physical movement.",
+        },
+        {
+            personality: "Romantic",
+            des: "Romantic individuals have a deep appreciation for beauty and love. They find joy in heartfelt connections and often enjoy storytelling and art that evoke emotions, creating lasting memories through meaningful relationships.",
+        },
+        {
+            personality: "Minimalist",
+            des: "Minimalist individuals value simplicity and practicality. They focus on quality over quantity, cultivating a clutter-free lifestyle that emphasizes harmony and mindfulness in their surroundings and experiences.",
+        },
+        {
+            personality: "Eclectic",
+            des: "Eclectic individuals celebrate diversity in styles and interests. They enjoy mixing different influences, creating a rich personal tapestry that reflects their multifaceted personalities and open-mindedness.",
+        },
+        {
+            personality: "Classic",
+            des: "Classic individuals embody timeless elegance, often gravitating towards traditional styles. They appreciate quality and craftsmanship, choosing pieces with enduring appeal, making them polished and refined in any setting.",
+        },
+        {
+            personality: "Quirky",
+            des: "Quirky individuals embrace their uniqueness with a playful sense of humor and style. They celebrate individuality, often delighting others with their imaginative ideas and encouraging everyone to express their quirks.",
+        },
+        {
+            personality: "Sophisticated",
+            des: "Sophisticated individuals have a cultured perspective on life, appreciating the arts and intellectual pursuits. Their elegance extends to their demeanor and conversations, making them captivating companions with a depth of knowledge.",
+        },
     ];
 
     const handleSelectChange = (selectedOption) => {
@@ -50,7 +100,16 @@ const PersonalityOutfit = () => {
         { value: "Creative", label: "Creative" },
         { value: "Introverted", label: "Introverted" },
         { value: "Extroverted", label: "Extroverted" },
-        // Other options...
+        { value: "LaidBack", label: "LaidBack" },
+        { value: "Edgy", label: "Edgy" },
+        { value: "Chic", label: "Chic" },
+        { value: "Sporty", label: "Sporty" },
+        { value: "Romantic", label: "Romantic" },
+        { value: "Minimalist", label: "Minimalist" },
+        { value: "Eclectic", label: "Eclectic" },
+        { value: "Classic", label: "Classic" },
+        { value: "Quirky", label: "Quirky" },
+        { value: "Sophisticated", label: "Sophisticated" },
     ];
 
     const genderValues = [
@@ -69,6 +128,7 @@ const PersonalityOutfit = () => {
     ];
 
     const fetchOutfitsFromAPI = async (category, gender) => {
+        console.log("fetchdetails", category, gender);
         try {
             const response = await fetch(
                 `http://localhost:3000/api/products/${gender}/${category}?limit=3`
@@ -108,8 +168,6 @@ const PersonalityOutfit = () => {
             });
 
             const resolvedCategories = await Promise.all(categoryPromises);
-
-            // Build outfits by taking one product from each category
             let topwear =
                 resolvedCategories.find((item) => item.category === "Topwear")
                     ?.products || [];
@@ -125,7 +183,6 @@ const PersonalityOutfit = () => {
                     (item) => item.category === "Accessories"
                 )?.products || [];
 
-            // Create one outfit with one item from each category
             const outfitCount = Math.max(
                 topwear.length,
                 bottomwear.length,
@@ -146,6 +203,7 @@ const PersonalityOutfit = () => {
             }
 
             setAPIData(finalOutfits);
+            console.log(finalOutfits);
             setIsLoading(false); // Stop loading
         }
     };
@@ -214,19 +272,31 @@ const PersonalityOutfit = () => {
                                     <div className="outfit_sub_div">
                                         <div>
                                             <h3>Topwear</h3>
-                                            <Card product={item.topwear} />
+                                            <Card
+                                                product={item.topwear}
+                                                styles={{ width: "250px" }}
+                                            />
                                         </div>
                                         <div>
                                             <h3>Bottomwear</h3>
-                                            <Card product={item.bottomwear} />
+                                            <Card
+                                                product={item.bottomwear}
+                                                styles={{ width: "250px" }}
+                                            />
                                         </div>
                                         <div>
                                             <h3>Footwear</h3>
-                                            <Card product={item.footwear} />
+                                            <Card
+                                                product={item.footwear}
+                                                styles={{ width: "250px" }}
+                                            />
                                         </div>
                                         <div>
                                             <h3>Accessory</h3>
-                                            <Card product={item.accessories} />
+                                            <Card
+                                                product={item.accessories}
+                                                styles={{ width: "250px" }}
+                                            />
                                         </div>
                                     </div>
                                 </div>

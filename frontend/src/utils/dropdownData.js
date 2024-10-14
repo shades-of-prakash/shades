@@ -33,7 +33,7 @@ const dropdownData = [
                     "FormalShoes",
                     "Sneakers",
                     "Sandals",
-                    "Flip Flops",
+                    "FlipFlops",
                 ],
             },
             {
@@ -49,7 +49,7 @@ const dropdownData = [
                 mainCategory: "FusionWear",
                 subCategory: [
                     "Kurtas",
-                    "Sarees",
+                    "Saree",
                     "EthnicWear",
                     "Leggings",
                     "Jackets",
@@ -58,9 +58,9 @@ const dropdownData = [
             {
                 mainCategory: "WesternWear",
                 subCategory: [
-                    " Dresses",
+                    "Dresses",
                     "Tops",
-                    " Tshirts",
+                    "Tshirts",
                     "Jeans",
                     "Trousers",
                 ],

@@ -5,7 +5,12 @@ const ContentLayout = ({ data }) => {
     return (
         <div className="data_display">
             {products.map((item, index) => (
-                <Card products={products} product={item} key={item._id} />
+                <Card
+                    products={products}
+                    product={item}
+                    key={item._id}
+                    styles={{ width: "286px" }}
+                />
             ))}
         </div>
     );

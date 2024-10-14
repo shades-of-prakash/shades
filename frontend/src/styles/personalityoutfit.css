@@ -100,10 +100,8 @@
     padding-right: 10px;
 }
 .outfit_sub_div {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     padding: 10px 0;
     gap: 10px;
-}
-.card {
-    width: 250px;
 }
