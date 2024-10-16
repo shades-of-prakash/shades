@@ -4,7 +4,7 @@ import { ArrowDown2, ArrowUp2 } from "iconsax-react";
 
 const CustomSelect = ({ options, onChange, theme }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const defaultOption = options[0]; // Keep the first option as default
+    const defaultOption = options[0];
     const [selectedOption, setSelectedOption] = useState(defaultOption);
 
     const handleOptionClick = (option) => {

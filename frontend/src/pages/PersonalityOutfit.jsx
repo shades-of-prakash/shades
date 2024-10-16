@@ -11,11 +11,11 @@ const PersonalityOutfit = () => {
     const [selectedGender, setSelectedGender] = useState(null);
     const [APIData, setAPIData] = useState([]); // State to store API data
     const [isLoading, setIsLoading] = useState(false); // State for loading
-
+    const [fromLocal, setFromLocal] = useState(false);
     useEffect(() => {
-        // Load data from localStorage on component mount
         const savedOutfits = localStorage.getItem("generatedOutfits");
         if (savedOutfits) {
+            setFromLocal(true);
             setAPIData(JSON.parse(savedOutfits));
         }
     }, []);
@@ -131,7 +131,7 @@ const PersonalityOutfit = () => {
         console.log("fetchdetails", category, gender);
         try {
             const response = await fetch(
-                `http://localhost:3000/api/products/${gender}/${category}?limit=3`
+                `http://localhost:3000/api/products/random/${gender}/${category}?limit=3`
             );
             if (!response.ok) {
                 throw new Error("Network response was not ok");
@@ -220,7 +220,7 @@ const PersonalityOutfit = () => {
             </div>
             <div className="per_out_content">
                 <h2>Choose your personality</h2>
-                <div className="select_div">
+                <div className="per_select_div">
                     <div className="per_select">
                         <CustomSelect
                             options={valuesAndLables}
@@ -265,6 +265,11 @@ const PersonalityOutfit = () => {
                 </div>
                 {APIData.length > 0 && (
                     <div className="outfits_display_div">
+                        {fromLocal && (
+                            <h1 className="previous">
+                                Previously created outfits
+                            </h1>
+                        )}
                         {APIData.map((item, index) => {
                             return (
                                 <div key={index} className="outfit_div">

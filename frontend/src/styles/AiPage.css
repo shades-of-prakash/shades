@@ -13,6 +13,7 @@
     background-color: var(--primary-color);
     color: var(--secondary-color);
     font-family: var(--sfptext);
+    border: var(--border-light);
 }
 .ai_content {
     width: 80%;
@@ -29,4 +30,31 @@
     color: var(--primary-color);
     outline: none;
     border: none;
+}
+
+.outfits_content {
+    width: 80%;
+    height: auto;
+}
+.ai_sidemenu h1 {
+    font-size: medium;
+    margin-top: 16px;
+    padding: 10px;
+    position: sticky;
+    top: 60px;
+}
+.ai_sidemenu ul {
+    position: sticky;
+    top: 100px;
+}
+.ai_sidemenu ul li a {
+    text-decoration: none;
+    color: var(--light-color);
+}
+
+.ai_sidemenu ul li {
+    padding: 10px;
+}
+.ai_sidemenu ul li a:hover {
+    color: var(--secondary-color);
 }

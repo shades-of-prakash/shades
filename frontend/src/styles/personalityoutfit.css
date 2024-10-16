@@ -1,9 +1,11 @@
 .per_out_div {
     display: flex;
     flex-direction: column;
+    height: auto;
     color: var(--secondary-color);
     background-color: var(--primary-color);
     height: auto;
+    font-family: var(--sfptext);
 }
 .ai_intro {
     display: flex;
@@ -19,6 +21,11 @@
     text-align: center;
     width: 70%;
     margin-bottom: 10px;
+}
+.previous {
+    font-family: var(--sfptext);
+    margin-top: 24px;
+    font-size: medium;
 }
 
 .ai_personality_div {
@@ -51,7 +58,7 @@
     width: 50%;
 } */
 
-.select_div {
+.per_select_div {
     width: 60%;
     display: flex;
     justify-content: space-between;
@@ -67,7 +74,14 @@
     width: 600px;
 }
 .hide_button {
+    width: 250px;
     border-radius: 4px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 0 10px;
+    white-space: nowrap;
+    outline: none;
+    border: none;
 }
 .outfit_button {
     width: 300px;
@@ -104,4 +118,7 @@
     grid-template-columns: repeat(4, 1fr);
     padding: 10px 0;
     gap: 10px;
+}
+.outfit_sub_div .card {
+    width: 260px;
 }

@@ -26,6 +26,8 @@ import WishlistPage from "./pages/WishlistPage.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import AiPage from "./pages/AiPage.jsx";
 import PersonalityOutfit from "./pages/PersonalityOutfit.jsx";
+import Occasion from "./pages/Occasion.jsx";
+import Bodyshape from "./pages/Bodyshape.jsx";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -59,8 +61,21 @@ const router = createBrowserRouter([
                 element: <AiPage />,
                 children: [
                     {
-                        path: "personality_ai",
+                        index: true,
+                        element: <Occasion />,
+                    },
+
+                    {
+                        path: "personality_outfits",
                         element: <PersonalityOutfit />,
+                    },
+                    {
+                        path: "occasion_outfits",
+                        element: <Occasion />,
+                    },
+                    {
+                        path: "bodyshape_outfits",
+                        element: <Bodyshape />,
                     },
                 ],
             },

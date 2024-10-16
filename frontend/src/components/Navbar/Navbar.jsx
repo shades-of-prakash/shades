@@ -17,7 +17,7 @@ const Navbar = () => {
     const navItems = [
         { label: "Men", path: "/Men", genderData: dropdownData[0] },
         { label: "Women", path: "/Women", genderData: dropdownData[1] },
-        { label: "AI", path: "/shadesai", genderData: null },
+        { label: "Outfits", path: "/shadesai", genderData: null },
     ];
     function handleIcon() {
         toggleTheme((prev) => !prev);

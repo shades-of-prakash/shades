@@ -45,7 +45,6 @@
 .sub_images_grid img {
     width: 180px;
     height: 210px;
-
     object-fit: cover;
 }
 
@@ -154,4 +153,7 @@ ion-icon {
     white-space: nowrap;
     padding: 10px;
     gap: 10px;
+}
+.similar_products .card {
+    flex-shrink: 0;
 }

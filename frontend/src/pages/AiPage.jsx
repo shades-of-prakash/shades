@@ -6,20 +6,20 @@ const AiPage = () => {
         <div className="main_ai_div">
             <div className="sub_ai_div">
                 <div className="ai_sidemenu">
-                    <h1>SHADES AI</h1>
+                    <h1>SHADES OUTFITS</h1>
                     <ul>
                         <li>
-                            <Link></Link>
+                            <Link to="occasion_outfits">Occasion</Link>
                         </li>
                         <li>
-                            <Link></Link>
+                            <Link to="personality_outfits">Personality</Link>
                         </li>
                         <li>
-                            <Link></Link>
+                            <Link to="bodyshape_outfits">Bodyshape</Link>
                         </li>
                     </ul>
                 </div>
-                <div className="ai_content">
+                <div className="outfits_content">
                     <Outlet />
                 </div>
             </div>
