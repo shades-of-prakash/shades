@@ -17,28 +17,27 @@ const Footer = () => {
                 <div className="grid_2 dffd">
                     <h1>Shop</h1>
                     <p>
-                        <Link>Men</Link>
+                        <Link to="/Men">Men</Link>
                     </p>
                     <p>
-                        <Link>Women</Link>
+                        <Link to="/Women">Women</Link>
                     </p>
                     <p>
-                        <Link>Kids</Link>
-                    </p>
-                    <p>
-                        <Link>Home & Living</Link>
+                        <Link to="/shadesai">Outfits</Link>
                     </p>
                 </div>
                 <div className="grid_2">
-                    <h1>AI</h1>
+                    <h1>Outfits</h1>
                     <p>
-                        <Link>Predefined Outfits</Link>
+                        <Link to="/shadesai/occasion_outfits">Occasion</Link>
                     </p>
                     <p>
-                        <Link>Based on Shape</Link>
+                        <Link to="/shadesai/personality_outfits">
+                            Personality
+                        </Link>
                     </p>
                     <p>
-                        <Link>Based on color</Link>
+                        <Link to="/shadesai/bodyshape_outfits">Body shape</Link>
                     </p>
                 </div>
                 <div className="grid_2">

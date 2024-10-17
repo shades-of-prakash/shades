@@ -50,22 +50,21 @@ const AccountDetails = () => {
         <div className="account-details">
             <h1>Account Details</h1>
             {userData && (
-                <div>
-                    <p>
+                <div className="deatils">
+                    <div>
                         <strong>Name:</strong> {userData.first_name}{" "}
-                        {userData.last_name}
-                    </p>
-                    <p>
+                        <span>{userData.last_name}</span>
+                    </div>
+                    <div>
                         <strong>Email:</strong> {userData.email}
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <strong>Phone Number:</strong> {userData.phone_number}
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <strong>Date of Birth:</strong>{" "}
                         {new Date(userData.date_of_birth).toLocaleDateString()}
-                    </p>
-                    {/* Add more fields as necessary */}
+                    </div>
                 </div>
             )}
         </div>

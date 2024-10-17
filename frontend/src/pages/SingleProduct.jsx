@@ -4,15 +4,17 @@ import "../styles/singleProduct.css";
 import { useTheme } from "../hooks/UseTheme.jsx";
 import { Box1, Truck, ArrowForward } from "iconsax-react";
 import Card from "../components/Card.jsx/Card.jsx";
-
+import { useAuth } from "../hooks/UseAuth.jsx";
 function SingleProduct() {
     const location = useLocation();
     const navigate = useNavigate();
     const { isDark } = useTheme();
+    const { isAuthenticated } = useAuth();
     const product = location.state?.product;
     const products = location.state?.products || [];
     const [relatedProducts, setRelatedProducts] = useState(products);
     const [mainImageUrl, setMainImageUrl] = useState(product?.mainImageUrl);
+
     const [additionalImageUrls, setAdditionalImageUrls] = useState(
         product?.additionalImageUrls || []
     );
@@ -210,15 +212,21 @@ function SingleProduct() {
                         {isAddedToCart ? (
                             <button
                                 className="addtobag"
-                                onClick={() => navigate("/account/cart")}>
+                                onClick={() => {
+                                    navigate("/account/cart");
+                                }}>
                                 Go to Bag
                             </button>
                         ) : (
                             <button
                                 className="addtobag"
-                                onClick={() =>
-                                    handleCart(product._id, selectedSize)
-                                }>
+                                onClick={() => {
+                                    if (isAuthenticated) {
+                                        handleCart(product._id, selectedSize);
+                                    } else {
+                                        navigate("/login");
+                                    }
+                                }}>
                                 Add to Bag
                             </button>
                         )}

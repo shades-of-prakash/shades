@@ -6,18 +6,22 @@ import { useAuth } from "../hooks/UseAuth";
 const Login = () => {
     const { isDark } = useTheme();
     const [showPassword, isShowPassword] = useState(false);
+    const [isError, setIsError] = useState(false);
     const actionData = useActionData();
     const navigate = useNavigate();
     const { login } = useAuth();
     useEffect(() => {
         if (
             actionData &&
+            actionData.user &&
             actionData.user.token &&
             actionData.success === true
         ) {
             localStorage.setItem("token", actionData.user.token);
             login(actionData.user.token);
             navigate("/");
+        } else if (actionData && actionData.success === false) {
+            setIsError(true);
         }
     }, [actionData, navigate]);
     return (
@@ -28,6 +32,10 @@ const Login = () => {
             <div className="login_content">
                 <h1>SHADES</h1>
                 <p className="welcome">Good to have you back,Ready for more?</p>
+
+                {isError && (
+                    <p className="error">Email or password is invalid</p>
+                )}
                 <Form method="post">
                     <div className="input_box">
                         <input type="Email" name="email" required />

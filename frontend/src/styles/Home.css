@@ -90,15 +90,14 @@
 .whyus .whyus_image h1 {
     font-size: 180px;
     font-family: var(--sfpdisplay);
-    color: black;
+    color: white;
     padding: 0 20px;
-    /* background: linear-gradient(90deg, #780206, #061161); */
-    background-image: url("/assets/dotted.jpg");
+    background: linear-gradient(90deg, #780206, #061161);
     background-position: center;
     background-size: cover;
-    /* background-clip: text; */
-    /* -webkit-background-clip: text; */
-    /* -webkit-text-fill-color: transparent; */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .whyus_content {
     font-family: var(--sfptext);

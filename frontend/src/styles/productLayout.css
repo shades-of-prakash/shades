@@ -117,10 +117,46 @@
 .pagination_sub_div .page:hover {
     background-color: var(--secondary-color);
 }
+.pagination_boxes {
+    width: 230px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    scroll-behavior: smooth;
+    gap: 10px;
+    overflow-x: auto;
+}
+.pagination_boxes::-webkit-scrollbar {
+    display: none;
+}
+.pagination_boxes .page {
+    flex-shrink: 0;
+    width: 50px;
+    height: 40px;
+    background-color: var(--primary-color);
+    border: var(--border-light);
+    cursor: pointer;
+}
 .pagination_sub_div .page span {
     font-family: var(--sfptext);
     color: var(--secondary-color);
 }
 .pagination_sub_div .page:hover span {
     color: var(--primary-color);
+}
+.pagination_sub_div ion-icon {
+    background-color: var(--primary-color);
+}
+.arrow {
+    background-color: var(--primary-color);
+    width: 50px;
+    height: 40px;
+    color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.arrow:hover {
+    background-color: var(--light-color);
 }

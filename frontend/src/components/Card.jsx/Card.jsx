@@ -24,7 +24,7 @@ const Card = ({ product, products }) => {
             <div className="product_details">
                 <h3>{productBrand}</h3>
                 <p>{capitalizeFirstLetter(productDescription)}</p>
-                <div className="price">
+                <div className="card_price">
                     <span className="product_price">{productPrice}</span>
                     <span className="product_strike">
                         {productOriginalPrice}
