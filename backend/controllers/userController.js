@@ -233,25 +233,55 @@ const addToCart = async (req, res) => {
 
 const createOrder = async (req, res) => {
     try {
-        const user = await User.findById(req.user.userId).populate(
-            "cart.product_id"
-        );
-
-        if (user.cart.length === 0) {
+        const user = await User.findById(req.user.id);
+        if (!user || user.cart.length === 0) {
             return res.status(400).json({ message: "Cart is empty." });
         }
+        const productIds = user.cart.map((item) => item.product_id);
 
-        const orderItems = user.cart.map((item) => ({
-            product_id: item.product_id,
-            quantity: item.quantity,
-            price: item.product_id.price || 0,
-        }));
+        const menProducts = await Men.find({ _id: { $in: productIds } });
+        const womenProducts = await Women.find({ _id: { $in: productIds } });
 
+        const products = [...menProducts, ...womenProducts];
+
+        if (products.length === 0) {
+            return res
+                .status(400)
+                .json({ message: "No products found for the given cart." });
+        }
+
+        const productMap = products.reduce((acc, product) => {
+            acc[product._id] = product;
+            return acc;
+        }, {});
+
+        // Map cart items to order items using the product map
+        const orderItems = user.cart
+            .map((item) => {
+                const product = productMap[item.product_id];
+                return product
+                    ? {
+                          product_id: product._id,
+                          quantity: item.quantity,
+                          price: product.price || 0,
+                      }
+                    : null;
+            })
+            .filter((item) => item !== null);
+
+        if (orderItems.length === 0) {
+            return res
+                .status(400)
+                .json({ message: "No valid products in the cart." });
+        }
+
+        // Calculate total price
         const total_price = orderItems.reduce(
             (acc, item) => acc + item.price * item.quantity,
             0
         );
 
+        // Create a new order
         const newOrder = {
             items: orderItems,
             total_price,
@@ -259,20 +289,25 @@ const createOrder = async (req, res) => {
             status: "Pending",
         };
 
+        // Save the new order to the user's orders array
         user.orders.push(newOrder);
-        await user.save();
-        user.cart = [];
-        await user.save();
 
+        // Clear the user's cart
+        user.cart = [];
+
+        // Save both user data and the new order
+        await user.save();
+        console.log(user);
+        // Return the response with order details
         return res.status(201).json({
             message: "Order created successfully.",
             order: newOrder,
         });
     } catch (error) {
-        console.error(error);
+        console.error("Error creating order:", error);
         return res
             .status(500)
-            .json({ message: "Error creating order.", error });
+            .json({ message: "Error creating order.", error: error.message });
     }
 };
 

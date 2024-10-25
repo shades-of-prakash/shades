@@ -9,6 +9,7 @@ import {
     getCartProductDetails,
     getWishlistProductDetails,
     updateCartProductDetails,
+    createOrder,
 } from "../controllers/userController.js";
 import authMiddleware from "../middlewares/authMiddleware.js";
 const router = express.Router();
@@ -24,6 +25,8 @@ router.put("/wishlist", authMiddleware, addToWishlist);
 router.post("/cart", authMiddleware, addToCart);
 
 router.post("/addresses", authMiddleware, addAddress);
+
+router.post("/createorder", authMiddleware, createOrder);
 
 router.get("/getcartitems", authMiddleware, getCartProductDetails);
 

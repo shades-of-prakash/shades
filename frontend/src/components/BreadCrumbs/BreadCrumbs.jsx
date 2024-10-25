@@ -15,7 +15,7 @@ const BreadCrumbs = () => {
     return (
         <nav className="breadCrumbs">
             <ul className="breadcrumb">
-                <li className="dfsb">
+                <li className="dfsb bread_item">
                     <Link to="/">Home</Link>
                     {pathnames.length > 0 && (
                         <ion-icon name="chevron-forward-outline"></ion-icon>
@@ -24,7 +24,7 @@ const BreadCrumbs = () => {
                 {pathnames.map((value, index) => {
                     const to = `/${pathnames.slice(0, index + 1).join("/")}`;
                     return (
-                        <li key={to} className="dfsb">
+                        <li key={to} className="dfsb bread_item">
                             {index + 1 === pathnames.length ? (
                                 <span>{formatBreadcrumb(value)}</span>
                             ) : (
