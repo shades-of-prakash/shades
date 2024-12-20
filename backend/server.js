@@ -10,6 +10,9 @@ app.use(express.json());
 app.use(cors());
 app.use(`${process.env.BASE_URL}/api/products`, productRouter);
 app.use(`${process.env.BASE_URL}/api/user`, userRouter);
+app.get(`${process.env.BASE_URL}`, (req, res) => {
+	res.send("hello");
+});
 const port = process.env.PORT || 3001;
 connectDb()
 	.then(() => {
