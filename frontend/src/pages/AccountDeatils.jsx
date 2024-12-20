@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 const AccountDetails = () => {
 	const [userData, setUserData] = useState(null);
 	const [loading, setLoading] = useState(true);
@@ -9,7 +8,7 @@ const AccountDetails = () => {
 		const fetchUserInfo = async () => {
 			try {
 				const response = await fetch(
-					`${process.env.VITE_API_URL}/api/user/me`,
+					`${import.meta.env.VITE_API_URL}/api/user/me`,
 					{
 						method: "GET",
 						headers: {

@@ -9,7 +9,7 @@ const CartPage = () => {
 	const fetchCartProducts = async () => {
 		try {
 			const response = await fetch(
-				`${process.env.VITE_API_URL}/api/user/getcartitems`,
+				`${import.meta.env.VITE_API_URL}/api/user/getcartitems`,
 				{
 					method: "GET",
 					headers: {

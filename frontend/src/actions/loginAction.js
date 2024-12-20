@@ -4,13 +4,16 @@ export async function loginAction({ request }) {
 		const email = formData.get("email");
 		const password = formData.get("password");
 
-		const response = await fetch(`${process.env.VITE_API_URL}/api/user/login`, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({ email, password }),
-		});
+		const response = await fetch(
+			`${import.meta.env.VITE_API_URL}/api/user/login`,
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ email, password }),
+			}
+		);
 
 		if (!response.ok) {
 			const errorResponse = await response.json();

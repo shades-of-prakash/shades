@@ -131,7 +131,9 @@ const PersonalityOutfit = () => {
 		console.log("fetchdetails", category, gender);
 		try {
 			const response = await fetch(
-				`${process.env.VITE_API_URL}/api/products/random/${gender}/${category}?limit=3`
+				`${
+					import.meta.env.VITE_API_URL
+				}/api/products/random/${gender}/${category}?limit=3`
 			);
 			if (!response.ok) {
 				throw new Error("Network response was not ok");

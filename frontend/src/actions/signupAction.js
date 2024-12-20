@@ -20,7 +20,7 @@ export const signupAction = async ({ request }) => {
 	console.log(data);
 	try {
 		const response = await fetch(
-			`${process.env.VITE_API_URL}/api/user/register`,
+			`${import.meta.env.VITE_API_URL}/api/user/register`,
 			{
 				method: "POST",
 				headers: {

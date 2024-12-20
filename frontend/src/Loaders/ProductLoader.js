@@ -1,6 +1,5 @@
 import capitalizeWordsWithPrefix from "../utils/Capitalize";
 const productCache = {};
-
 export async function productLoader({ params, request }) {
 	const category = params.category;
 	const gender = params.gender;
@@ -30,7 +29,6 @@ export async function productLoader({ params, request }) {
 		);
 		return productCache[cacheKey];
 	}
-	console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
 
 	let apiUrl = `${import.meta.env.VITE_API_URL}/api/products/${gender}${
 		category ? "/" + newCategory : ""

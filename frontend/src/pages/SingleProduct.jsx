@@ -47,7 +47,7 @@ function SingleProduct() {
 		}
 		try {
 			const response = await fetch(
-				`${process.env.VITE_API_URL}/api/products/${extractGender(
+				`${import.meta.env.VITE_API_URL}/api/products/${extractGender(
 					category
 				)}/${category}`
 			);
@@ -78,7 +78,7 @@ function SingleProduct() {
 		setIsWishListed((prev) => !prev);
 		try {
 			const response = await fetch(
-				`${process.env.VITE_API_URL}/api/user/wishlist`,
+				`${import.meta.env.VITE_API_URL}/api/user/wishlist`,
 				{
 					method: "PUT",
 					headers: {
@@ -107,7 +107,7 @@ function SingleProduct() {
 		}
 		try {
 			const response = await fetch(
-				`${process.env.VITE_API_URL}/api/user/cart`,
+				`${import.meta.env.VITE_API_URL}/api/user/cart`,
 				{
 					method: "POST",
 					headers: {

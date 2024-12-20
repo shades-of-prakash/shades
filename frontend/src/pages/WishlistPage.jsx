@@ -8,7 +8,7 @@ const WishlistPage = () => {
 	const fetchWishlist = async () => {
 		try {
 			const response = await fetch(
-				`${process.env.VITE_API_URL}/api/user/getwishlistitems`,
+				`${import.meta.env.VITE_API_URL}/api/user/getwishlistitems`,
 				{
 					method: "GET",
 					headers: {
