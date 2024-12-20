@@ -1,0 +1,115 @@
+.login_main {
+    width: 100%;
+    height: 100dvh;
+    padding: 10px;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.photo {
+    width: 50%;
+    height: 700px;
+    overflow: hidden;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    position: relative;
+}
+.photo video {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+    object-position: center;
+}
+.photo img {
+    width: 100%;
+    height: inherit;
+    object-fit: contain;
+    object-position: center;
+}
+.login_content {
+    width: 50%;
+    height: 700px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    /* border: 1px solid red; */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--sfptext);
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='2' stroke-dasharray='7' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+.welcome {
+    font-size: 16px;
+    margin-top: 10px;
+    color: var(--light-color);
+}
+form {
+    width: 70%;
+    padding: 20px;
+}
+.input_box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.input_box label {
+    margin-bottom: 12px;
+    position: absolute;
+    top: 16px;
+    left: 10px;
+    padding-right: 20px;
+    transition: top 0.3s ease-in-out;
+    color: var(--light-color);
+}
+.input_box input {
+    margin-bottom: 24px;
+    padding: 15px;
+    border: var(--border-medium);
+    background-color: transparent;
+    border-radius: 4px;
+    z-index: 100;
+    color: var(--secondary-color);
+    font-size: 16px;
+}
+.input_box input:focus ~ label,
+.input_box input:valid ~ label {
+    top: -10px;
+    background-color: var(--primary-color);
+    z-index: 101;
+    padding: 0 4px;
+    margin: 0;
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+ion-icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 102;
+    display: none;
+}
+.input_box input:valid ~ ion-icon {
+    display: block;
+}
+.continue_button {
+    width: 100%;
+    margin: 16px 0;
+    padding: 15px;
+}
+.signup {
+    display: flex;
+    gap: 4px;
+}
+.error {
+    background-color: rgba(255, 0, 0, 0.105);
+    color: rgba(255, 0, 0, 0.444);
+    margin-top: 16px;
+    padding: 10px;
+    width: 65%;
+    text-align: center;
+}

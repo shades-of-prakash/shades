@@ -1,0 +1,56 @@
+/* src/styles/CustomSelect.css */
+
+.custom-select {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+}
+
+.custom-select-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color); /* White background */
+    color: var(--secondary-color); /* Dark gray font color */
+    padding: 10px;
+    border: var(--border-medium); /* Blue border */
+    border-radius: 4px;
+    text-align: left;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* .custom-select-trigger:hover {
+    background-color: #f0f8ff;
+} */
+
+.custom-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color); /* White background for options */
+    border: var(--border-medium); /* Blue border for dropdown */
+    border-radius: 4px;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Soft blue shadow */
+}
+
+.custom-option {
+    padding: 10px;
+    cursor: pointer;
+    color: #333; /* Dark gray font color for options */
+    transition: background-color 0.3s;
+}
+
+.custom-option:hover {
+    background-color: #e0f7fa; /* Light cyan on option hover */
+    color: #007bff; /* Blue font color on hover */
+}
+
+.custom-option:not(:last-child) {
+    border-bottom: var(--border-light);
+}
