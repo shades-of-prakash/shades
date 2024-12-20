@@ -8,9 +8,9 @@ import cors from "cors";
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(`${process.env.BASE_URL}/api/products`, productRouter);
-app.use(`${process.env.BASE_URL}/api/user`, userRouter);
-app.get(`${process.env.BASE_URL}`, (req, res) => {
+app.use(`/api/products`, productRouter);
+app.use(`/api/user`, userRouter);
+app.get(`/`, (req, res) => {
 	res.send("hello");
 });
 const port = process.env.PORT || 3001;
