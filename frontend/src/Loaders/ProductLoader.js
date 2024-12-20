@@ -19,6 +19,7 @@ export async function productLoader({ params, request }) {
 	console.log(
 		`Fetching products for category: ${newCategory}, page: ${page}, limit: ${limit}`
 	);
+	console.log("ehjkl;");
 
 	if (productCache[cacheKey]) {
 		console.log(
@@ -29,14 +30,15 @@ export async function productLoader({ params, request }) {
 		);
 		return productCache[cacheKey];
 	}
+	console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
 
-	let apiUrl = `${process.env.VITE_API_URL}/api/products/${gender}${
+	let apiUrl = `${import.meta.env.VITE_API_URL}/api/products/${gender}${
 		category ? "/" + newCategory : ""
 	}?page=${page}&limit=${limit}`;
 	console.log(apiUrl);
-
 	try {
 		const response = await fetch(apiUrl);
+		console.log(response);
 		if (!response.ok) {
 			throw new Error(`Error fetching products: ${response.statusText}`);
 		}
